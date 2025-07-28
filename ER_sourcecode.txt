@@ -1,0 +1,65 @@
+Table customers {
+  customer_id TEXT [pk]
+  customer_unique_id TEXT
+  customer_zip_code_prefix INT
+  customer_city TEXT
+  customer_state TEXT
+}
+
+Table orders {
+  order_id TEXT [pk]
+  customer_id TEXT [ref: > customers.customer_id]
+  order_status TEXT
+  order_purchase_timestamp DATETIME
+  order_approved_at DATETIME
+  order_delivered_carrier_date DATETIME
+  order_delivered_customer_date DATETIME
+  order_estimated_delivery_date DATETIME
+}
+
+Table sellers {
+  seller_id TEXT [pk]
+  seller_zip_code_prefix INT
+  seller_city TEXT
+  seller_state TEXT
+}
+
+Table products {
+  product_id TEXT [pk]
+  product_category TEXT
+  product_name_length INT
+  product_description_length INT
+  product_photos_qty INT
+  product_weight_g REAL
+  product_length_cm REAL
+  product_height_cm REAL
+  product_width_cm REAL
+}
+
+Table order_items {
+  order_id TEXT [ref: > orders.order_id]
+  order_item_id INT
+  product_id TEXT [ref: > products.product_id]
+  seller_id TEXT [ref: > sellers.seller_id]
+  shipping_limit_date DATETIME
+  price REAL
+  freight_value REAL
+  
+}
+
+Table payments {
+  order_id TEXT [ref: > orders.order_id]
+  payment_sequential INT
+  payment_type TEXT
+  payment_installments INT
+  payment_value REAL
+  
+}
+
+Table geolocation {
+  geolocation_zip_code_prefix INT
+  geolocation_lat REAL
+  geolocation_lng REAL
+  geolocation_city TEXT
+  geolocation_state TEXT
+}
