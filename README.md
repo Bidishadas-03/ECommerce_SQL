@@ -1,7 +1,8 @@
 # ECommerce_SQL
 
 This project explores and analyzes an E-Commerce platform’s backend data to uncover business insights related to customer behavior, sales performance, product trends, and seller distribution.
-About the Project
+
+About the Project:
 
 In this project, We explored the workings of an e-commerce platform using a detailed dataset that covered everything from customer locations to order details and seller information. The goal was to understand how different parts of the system interact, from shopping habits to delivery performance.
 
